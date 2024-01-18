@@ -241,8 +241,8 @@ class AuthPolicy(object):
 ```
 
 
-Key is `` authResponse['usageIdentifierKey'] = event['authorizationToken']`` event['authorizationToken'] is the header key that specify in Lambda Authorizer token source.
-Value is the header value, usageIdentifierKey will be check with API key bank if we the key existed
+* API Key is `` authResponse['usageIdentifierKey'] = event['authorizationToken']`` event['authorizationToken'] is the header key that specify in Lambda Authorizer token source.
+* Value is the header value ``event['authorizationToken']`` , usageIdentifierKey will be check with API key bank if we the key existed
 
 5. Bonus you can also change this to python ARM and python 12
 6. Configure method that need API key to 
@@ -250,3 +250,6 @@ Value is the header value, usageIdentifierKey will be check with API key bank if
    2. API key checked
 
 ![](APIKey/Screenshot%202567-01-18%20at%2023.41.22.png)
+
+7. Create new usage plan and API key
+8. Test with the correct key

@@ -1,7 +1,19 @@
-# PTG Change API Gateway API key to Any header
+# Change AWS API Gateway API key to Any header
+
+## Create Usage plan and API key
+1. Create API key using existing key![](Change%20AWS%20API%20Gateway%20API%20key%20to%20Any%20header/Screenshot%202567-01-19%20at%2009.28.44.png)
+2. Create usage plan
+![](Change%20AWS%20API%20Gateway%20API%20key%20to%20Any%20header/Screenshot%202567-01-19%20at%2009.30.10.png)
+3. Associate usage plan with API Stage
+![](Change%20AWS%20API%20Gateway%20API%20key%20to%20Any%20header/Screenshot%202567-01-19%20at%2009.31.03.png)
+4. Associate usage plan with API key![](Change%20AWS%20API%20Gateway%20API%20key%20to%20Any%20header/Screenshot%202567-01-19%20at%2009.31.15.png)
+
+
+---
+## Create customer Authorizer
 
 1. Create Lambda Authorizer 
-2. This Example will use ptg key as the header![](APIKey/Screenshot%202567-01-18%20at%2023.31.51.png)
+2. This Example will use ptg key as the header![](Change%20AWS%20API%20Gateway%20API%20key%20to%20Any%20header/Screenshot%202567-01-18%20at%2023.31.51.png)
 3. Create Lambda using Blueprint name ``API Gateway custom user authorizer``
 4. Change code on lambda_handler method **DO NOT modify other line method**
 
@@ -244,12 +256,10 @@ class AuthPolicy(object):
 * API Key is `` authResponse['usageIdentifierKey'] = event['authorizationToken']`` event['authorizationToken'] is the header key that specify in Lambda Authorizer token source.
 * Value is the header value ``event['authorizationToken']`` , usageIdentifierKey will be check with API key bank if we the key existed
 
+
 5. Bonus you can also change this to python ARM and python 12
 6. Configure method that need API key to 
    1. Authorization: Select lambda auth name
    2. API key checked
 
-![](APIKey/Screenshot%202567-01-18%20at%2023.41.22.png)
-
-7. Create new usage plan and API key
-8. Test with the correct key
+![](Change%20AWS%20API%20Gateway%20API%20key%20to%20Any%20header/Screenshot%202567-01-18%20at%2023.41.22.png)
